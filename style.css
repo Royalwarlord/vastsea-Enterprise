@@ -1,0 +1,144 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: 'Times New Roman', Times, serif;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+a{
+    color: #fff;
+    text-decoration: none;
+}
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 25px 0px 25px;
+    display: flex;
+    justify-content: space-around;
+    background: #009688;
+}
+.header .logo {
+    width: auto;
+    align-self: center;
+    position: relative;
+    margin-left: 70px;
+}
+.header .logo img {
+    width: 100px;
+}
+.header .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+.header .navbar ul {
+    font-size: 18px;
+    display: flex;
+    width: auto;
+    flex-wrap: nowrap;
+}
+.header .navbar ul li {
+    margin-right: 32px;
+    white-space: nowrap;
+    list-style: none;
+}
+.header .navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+}
+.header .login_btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border: none;
+    outline: none;
+    font-size: 19px;
+    color: #00796B;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 8px 30px;
+    margin: 30px;
+    border-radius: 30px;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.header .login_btn:hover {
+    background: #00796B;
+    color: #ffffff; /* Change text color on hover */
+    box-shadow: 0px 4px 10px rgba(0, 121, 107, 0.4); /* Soft shadow */
+}
+.section {
+    background: url('img/glad-young-afro-woman-happy-find-jumper-holds-purple-solid-turtleneck-hanger-chooses-outfit-party-does-shopping-boutique-keeps-palm-raised.jpg') no-repeat;
+    background-size: cover;
+    background-position: start;
+    height: 5rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 25% 0;
+    
+}
+.section h1{
+    font-size: 40px; /* Increased font size for better visibility */
+    font-weight: 700; /* Increased font weight for better emphasis */
+    color: #fff;
+}
+.section p{
+    font-size: 20px; /* Increased font size for better visibility */
+    font-weight: 500; /* Increased font weight for better emphasis */
+    color: #fff; /* Changed text color to white for better contrast */
+}
+.section .explore_btn {
+    background: #009688;
+    color: #fff;
+    padding: 8px 30px;
+    border-radius: 30px;
+    transition: background 0.5s, color 0.5s, box-shadow 0.5s;
+    text-align: center;
+    cursor: pointer;
+}
+
+.section .explore_btn:hover {
+    background: #00796B;
+    color: #ffffff; /* Change text color on hover */
+    box-shadow: 0px 4px 10px rgba(0, 121, 107, 0.4); /* Soft shadow */
+}
+.footer {
+    background: #009688;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 20dvh;
+}
+.footer .contact{
+    font-size: 19px;
+    color: #fff;
+    text-align: center;
+}
+.footer .social-media{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.footer .social-media a:hover{
+    padding: 10px;
+}
+
+.fab{
+    font-size: 30px;
+    margin: 10px;
+    color: #fff;
+    text-decoration: none;
+}

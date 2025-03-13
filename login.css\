@@ -1,0 +1,121 @@
+/* login.css */
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background: url(img/pexels-pixabay-531880.jpg) no-repeat;
+    display: flex;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    background: transparent;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    box-sizing: border-box;
+}
+
+button {
+    background: #6a11cb;
+    color: white;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+button:hover {
+    background: #2575fc;
+}
+
+a {
+    display: block;
+    
+    color:#fff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+.remember-forgot{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: 0 15px;
+}
+.remember-forgot label input{
+    accent-color: #26A69A;
+    margin-right: 3px;
+}
+.remember-forgot a{
+    color: #fff;
+    text-decoration: none;
+}
+.remember-forgot a:hover{
+    text-decoration: underline;
+}
+.btn_lg {
+    background: #6a11cb;
+    color: #fff;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 45px;
+    cursor: pointer;
+    font-size: 1.25rem;
+    margin-top: 1rem;
+    width: 100%;
+    height: 45px;
+    transition: background 0.3s ease;
+}
+
+.btn_lg:hover {
+    background: #2575fc;
+}
+.register{
+    display: flex;
+    margin: 0 15px;
+    justify-content: center;
+}
+.input-box {
+    position: relative;
+    width: 100%;
+}
+
+.input-box i {
+    position: absolute;
+    right: 15%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #000;
+}
+.input-box i:hover {
+    color: #2575fc;
+}

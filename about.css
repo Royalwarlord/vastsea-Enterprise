@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+}
+.header{
+    background: url('img/pexels-tirachard-kumtanom-112571-733857.jpg') no-repeat ;
+    height: 40vh;
+    background-size: cover;
+}
+.header h1{
+    text-align: center;
+    color: #000;
+    font-size: 28px;
+    padding-top: 8%;
+}
+.container{
+    p{
+        justify-content:center;
+        text-align:justify;
+        padding: 5px 0;
+    }
+}
+.footer .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer .footer-content .socials {
+    margin: 20px 0;
+}
+
+.footer .footer-content .socials a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 24px;
+    transition: color 0.3s;
+}
+
+.footer .footer-content .socials a:hover {
+    color: #00796B;
+}
+
+.footer .footer-content p {
+    font-size: 16px;
+    margin: 10px 0;
+}
