@@ -1,22 +1,17 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require 'vendor/autoload.php'; // Include PHPMailer
-
+session_start();
 $server = "localhost";
 $username = "root";
 $password = "";
 $database = "user_auth";
 
-// Connect to MySQL
+// Create a connection
 $conn = new mysqli($server, $username, $password, $database);
-
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Get user input
+// Get form data
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
 $id_no = $_POST['id_no'];
@@ -24,47 +19,35 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 $confirm_password = $_POST['confirm_password'];
 
-// Check if passwords match
+// Password validation
 if ($password !== $confirm_password) {
     die("Passwords do not match!");
 }
 
-// Hash the password
-$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+// Hash password
+$hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-// Generate a verification code
-$verification_code = md5(rand());
+// Generate verification token
+$token = md5(uniqid(mt_rand(), true));
 
-// Insert user into database
-$sql = "INSERT INTO users (firstname, lastname, id_no, email, password, verification_code) 
-        VALUES ('$firstname', '$lastname', '$id_no', '$email', '$hashed_password', '$verification_code')";
+// Insert into database
+$sql = "INSERT INTO users (firstname, lastname, id_no, email, password, token) 
+        VALUES ('$firstname', '$lastname', '$id_no', '$email', '$hashed_password', '$token')";
 
 if ($conn->query($sql) === TRUE) {
     // Send verification email
-    $mail = new PHPMailer(true);
-    try {
-        $mail->isSMTP();
-        $mail->Host = 'smtp.example.com'; // Replace with your SMTP host
-        $mail->SMTPAuth = true;
-        $mail->Username = 'your_email@example.com'; // Your email
-        $mail->Password = 'your_email_password'; // Your email password
-        $mail->SMTPSecure = 'tls';
-        $mail->Port = 3306;
+    $subject = "Verify Your Email";
+    $message = "Click the link below to verify your email:\n\n";
+    $message .= "http://localhost/verify.php?token=" . $token;
+    $headers = "From: Vast_sea@yahoo.com";
 
-        $mail->setFrom('vast_sea@yahoo.com', 'Admin');
-        $mail->addAddress($email);
-
-        $mail->isHTML(true);
-        $mail->Subject = 'Verify Your Email';
-        $mail->Body = "Click this link to verify your email: <a href='http://localhost/verify.php?code=$verification_code'>Verify</a>";
-
-        $mail->send();
+    if (mail($email, $subject, $message, $headers)) {
         echo "Registration successful! Check your email to verify your account.";
-    } catch (Exception $e) {
-        echo "Email could not be sent. Error: {$mail->ErrorInfo}";
+    } else {
+        echo "Error sending email.";
     }
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $conn->error;
 }
 
 $conn->close();

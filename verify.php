@@ -4,27 +4,22 @@ $username = "root";
 $password = "";
 $database = "user_auth";
 
+// Create connection
 $conn = new mysqli($server, $username, $password, $database);
-
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-if (isset($_GET['code'])) {
-    $verification_code = $_GET['code'];
-
-    // Check if the code exists
-    $sql = "SELECT * FROM users WHERE verification_code = '$verification_code' AND is_verified = 0";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        // Update user as verified
-        $update = "UPDATE users SET is_verified = 1 WHERE verification_code = '$verification_code'";
-        if ($conn->query($update) === TRUE) {
-            echo "Email verified successfully! You can now <a href='login.html'>Login</a>";
-        }
+if (isset($_GET['token'])) {
+    $token = $_GET['token'];
+    
+    // Verify user
+    $sql = "UPDATE users SET is_verified = 1 WHERE token = '$token'";
+    
+    if ($conn->query($sql) === TRUE) {
+        echo "Email verified successfully! You can now login.";
     } else {
-        echo "Invalid or expired verification link.";
+        echo "Verification failed.";
     }
 }
 
